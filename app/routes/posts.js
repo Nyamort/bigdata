@@ -10,6 +10,7 @@ const postRouter = (app) => {
 	router.post('/', PostController.create);
 	router.post('/:id/comments', CommentController.create);
 	router.put('/:id/comments/:commentId', CommentController.update);
+	router.get('/:id/comments/:commentId', CommentController.findOne);
 	router.delete('/:id/comments/:commentId', CommentController.delete);
 	router.put('/:id', PostController.update);
 	router.delete('/:id', PostController.delete);

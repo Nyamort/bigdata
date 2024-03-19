@@ -74,6 +74,22 @@ class CommentController extends Controller{
 		}
 	}
 
+	async findOne(req, res) {
+		/**
+			#swagger.responses[200] = {
+				description: 'Comment found',
+				schema: { $ref: '#/components/schemas/Comment'}
+		 	}
+		 */
+		try {
+			const comment = await Comment.findById(req.params.commentId);
+			if(!comment) super.notFound(res);
+			super.success(res, comment);
+		} catch (error) {
+			super.error(res, error);
+		}
+	}
+
 
 
 }
