@@ -7,8 +7,8 @@ class Controller {
 		res.status(status).json({message: message});
 	}
 
-	success(res, data) {
-		res.status(200).json(data);
+	success(res,data, status = 200) {
+		res.status(status).json(data);
 	}
 }
 
