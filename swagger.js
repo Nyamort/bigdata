@@ -18,9 +18,12 @@ const config = {
 				$categories : ['string']
 			},
 			Post:{
-				id: 'string',
-				$entry : 'string',
-				$categories : ['string']
+				_id: 'string',
+				entry : 'string',
+				categories : ['string'],
+				createdAt : '1999-12-31T23:59:59Z',
+				updatedAt : '1999-12-31T23:59:59Z',
+				__v: 0
 			}
 		}
 

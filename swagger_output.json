@@ -217,7 +217,7 @@
       "Post": {
         "type": "object",
         "properties": {
-          "id": {
+          "_id": {
             "type": "string",
             "example": "string"
           },
@@ -233,12 +233,20 @@
             "items": {
               "type": "string"
             }
+          },
+          "createdAt": {
+            "type": "string",
+            "example": "1999-12-31T23:59:59Z"
+          },
+          "updatedAt": {
+            "type": "string",
+            "example": "1999-12-31T23:59:59Z"
+          },
+          "__v": {
+            "type": "number",
+            "example": 0
           }
         },
-        "required": [
-          "entry",
-          "categories"
-        ],
         "xml": {
           "name": "Post"
         }
