@@ -4,9 +4,11 @@ const mongoose = require("mongoose");
 const port = process.env.PORT || 3000;
 const swaggerUi = require('swagger-ui-express')
 const swaggerFile = require('./swagger_output.json')
-const productRouter = require('./app/routes/products');
+const postRouter = require('./app/routes/posts');
+const cors = require('cors');
 const app = express();
 
+app.use(cors())
 app.use(express.urlencoded({extended: true}));
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
@@ -17,14 +19,14 @@ mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${
 
 
 app.get('/', (req, res) => {
-	res.redirect('/products');
+	res.redirect('/posts');
 });
 
 
-productRouter(app);
+postRouter(app);
 
 app.use((req, res, next) => {
-	res.render('errors/404');
+	res.status(404).json({message: 'Not found'});
 })
 
 const serverStart = () => {
