@@ -34,6 +34,9 @@ class PostController extends Controller{
 		 */
 		try {
 			const post = await Post.findById(req.params.id);
+			if (!post) {
+				return super.notFound(res);
+			}
 			super.success(res, post);
 		} catch (error) {
 			super.error(res, error);
@@ -77,7 +80,10 @@ class PostController extends Controller{
 			const post = await Post.findByIdAndUpdate(req.params.id, {
 				entry: req.body.entry,
 				categories: req.body.categories,
-			}, {new: true, runValidators: true})
+			}, {runValidators: true, new: true})
+			if (!post) {
+				return super.notFound(res);
+			}
 			super.success(res, post);
 		} catch (error) {
 			super.error(res, error);
@@ -93,6 +99,9 @@ class PostController extends Controller{
 		*/
 		try {
 			const post = await Post.findByIdAndDelete(req.params.id);
+			if (!post) {
+				return super.notFound(res);
+			}
 			super.success(res, post);
 		} catch (error) {
 			super.error(res, error);
