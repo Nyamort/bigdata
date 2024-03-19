@@ -11,7 +11,7 @@
     "http"
   ],
   "paths": {
-    "/products/": {
+    "/posts/": {
       "get": {
         "description": "",
         "responses": {
@@ -29,19 +29,10 @@
             "schema": {
               "type": "object",
               "properties": {
-                "title": {
+                "entry": {
                   "example": "any"
                 },
-                "description": {
-                  "example": "any"
-                },
-                "price": {
-                  "example": "any"
-                },
-                "image": {
-                  "example": "any"
-                },
-                "category": {
+                "categories": {
                   "example": "any"
                 }
               }
@@ -55,17 +46,7 @@
         }
       }
     },
-    "/products/create": {
-      "get": {
-        "description": "",
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/products/{id}": {
+    "/posts/{id}": {
       "get": {
         "description": "",
         "parameters": [
@@ -99,24 +80,6 @@
         }
       },
       "delete": {
-        "description": "",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": ""
-          }
-        }
-      }
-    },
-    "/products/{id}/edit": {
-      "get": {
         "description": "",
         "parameters": [
           {

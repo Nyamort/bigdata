@@ -3,7 +3,7 @@ const router = express.Router();
 const PostController = require('../controllers/PostController');
 const postRouter = (app) => {
 
-	app.use('/products', router);
+	app.use('/posts', router);
 	router.get('/', PostController.findAll);
 	router.get('/:id', PostController.findOne);
 	router.post('/', PostController.create);
