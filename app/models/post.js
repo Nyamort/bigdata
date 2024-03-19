@@ -1,5 +1,5 @@
-const mangoose = require('mongoose');
-const ProductSchema = new mangoose.Schema({
+const mongoose = require('mongoose');
+const PostSchema = new mongoose.Schema({
 	entry: {
 		type: String,
 		required: true,
@@ -10,4 +10,4 @@ const ProductSchema = new mangoose.Schema({
 	},
 }, {timestamps: true});
 
-module.exports = mangoose.model('Product', ProductSchema, 'products');
+module.exports = mongoose.model('Post', PostSchema, 'posts');

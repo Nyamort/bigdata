@@ -2,6 +2,7 @@ const Post = require('../models/post');
 const Controller = require("./Controller");
 
 class PostController extends Controller{
+
 	async findAll(req, res) {
 		try {
 			const posts = await Post.find();
@@ -33,9 +34,13 @@ class PostController extends Controller{
 		}
 	}
 
+
 	async update(req, res) {
 		try {
-			const post = await Post.findByIdAndUpdate(req.params.id, req.body, {runValidators: true})
+			const post = await Post.findByIdAndUpdate(req.params.id, {
+				entry: req.body.entry,
+				categories: req.body.categories,
+			}, {runValidators: true})
 			super.success(res, post);
 		} catch (error) {
 			super.error(res, error);
