@@ -13,7 +13,8 @@ app.use(express.urlencoded({extended: true}));
 app.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 app.use(express.json());
 
-mongoose.connect(`mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
+// Add "+srv" after "mongodb" if db is in cloud
+mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASS}@${process.env.DB_HOST}/${process.env.DB_NAME}?retryWrites=true&w=majority`, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true
 });
