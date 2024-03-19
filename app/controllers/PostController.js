@@ -77,7 +77,7 @@ class PostController extends Controller{
 			const post = await Post.findByIdAndUpdate(req.params.id, {
 				entry: req.body.entry,
 				categories: req.body.categories,
-			}, {runValidators: true})
+			}, {new: true, runValidators: true})
 			super.success(res, post);
 		} catch (error) {
 			super.error(res, error);
