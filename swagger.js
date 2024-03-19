@@ -52,6 +52,9 @@ const config = {
 				updatedAt : '1999-12-31T23:59:59Z',
 				__v: 0
 			},
+			UpdateCommentRequest:{
+				$text : 'string',
+			}
 		}
 
 	}

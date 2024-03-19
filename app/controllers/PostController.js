@@ -34,24 +34,11 @@ class PostController extends Controller{
 			}
 		 */
 		try {
-			const post = await Post.aggregate([
-				{
-					$match: {_id: new Types.ObjectId(req.params.id)}
-				},
-				{
-					$lookup: {
-						from: 'comments',
-						localField: 'comments',
-						foreignField: '_id',
-						as: 'comments'
-					}
-				},
-				{ $limit: 1 }
-			]);
-			if (!post.length) {
+			const post = await Post.findById(req.params.id).populate('comments');
+			if (!post) {
 				return super.notFound(res);
 			}
-			super.success(res, post[0]);
+			super.success(res, post);
 		} catch (error) {
 			super.error(res, error);
 		}
