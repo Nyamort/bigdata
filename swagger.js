@@ -24,7 +24,34 @@ const config = {
 				createdAt : '1999-12-31T23:59:59Z',
 				updatedAt : '1999-12-31T23:59:59Z',
 				__v: 0
-			}
+			},
+			PostWithComments:{
+				_id: 'string',
+				entry : 'string',
+				categories : ['string'],
+				createdAt : '1999-12-31T23:59:59Z',
+				updatedAt : '1999-12-31T23:59:59Z',
+				__v: 0,
+				comments: [
+					{
+						_id: 'string',
+						comment: 'string',
+						createdAt: '1999-12-31T23:59:59Z',
+						updatedAt: '1999-12-31T23:59:59Z',
+						__v: 0
+					}
+				]
+			},
+			CreateCommentRequest:{
+				$text : 'string',
+			},
+			Comment:{
+				_id: 'string',
+				text : 'string',
+				createdAt : '1999-12-31T23:59:59Z',
+				updatedAt : '1999-12-31T23:59:59Z',
+				__v: 0
+			},
 		}
 
 	}

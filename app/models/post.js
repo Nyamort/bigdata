@@ -8,6 +8,10 @@ const PostSchema = new mongoose.Schema({
 		type: Array,
 		required: true,
 	},
+	comments: {
+		type: Array,
+		required: true,
+	}
 }, {timestamps: true});
 
 module.exports = mongoose.model('Post', PostSchema, 'posts');
