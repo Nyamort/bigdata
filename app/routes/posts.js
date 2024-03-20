@@ -6,6 +6,8 @@ const postRouter = (app) => {
 
 	app.use('/posts', router);
 	router.get('/', PostController.findAll);
+	router.get('/sum', PostController.sum);
+	router.get('/average', PostController.average);
 	router.get('/:id', PostController.findOne);
 	router.post('/', PostController.create);
 	router.post('/:id/comments', CommentController.create);

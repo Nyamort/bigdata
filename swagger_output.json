@@ -66,6 +66,50 @@
         }
       }
     },
+    "/posts/sum": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Sum price found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sum"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Sum"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/posts/average": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Average price found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Average"
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "$ref": "#/components/schemas/Average"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/posts/{id}": {
       "get": {
         "description": "",
@@ -349,6 +393,10 @@
             "type": "string",
             "example": "string"
           },
+          "price": {
+            "type": "number",
+            "example": 0
+          },
           "categories": {
             "type": "array",
             "example": [
@@ -373,6 +421,10 @@
           "entry": {
             "type": "string",
             "example": "string"
+          },
+          "price": {
+            "type": "number",
+            "example": 0
           },
           "categories": {
             "type": "array",
@@ -420,6 +472,10 @@
             "type": "string",
             "example": "1999-12-31T23:59:59Z"
           },
+          "price": {
+            "type": "number",
+            "example": 0
+          },
           "__v": {
             "type": "number",
             "example": 0
@@ -457,6 +513,10 @@
             "type": "string",
             "example": "1999-12-31T23:59:59Z"
           },
+          "price": {
+            "type": "number",
+            "example": 0
+          },
           "__v": {
             "type": "number",
             "example": 0
@@ -470,7 +530,7 @@
                   "type": "string",
                   "example": "string"
                 },
-                "comment": {
+                "text": {
                   "type": "string",
                   "example": "string"
                 },
@@ -550,6 +610,30 @@
         ],
         "xml": {
           "name": "UpdateCommentRequest"
+        }
+      },
+      "Average": {
+        "type": "object",
+        "properties": {
+          "average": {
+            "type": "string",
+            "example": "0"
+          }
+        },
+        "xml": {
+          "name": "Average"
+        }
+      },
+      "Sum": {
+        "type": "object",
+        "properties": {
+          "sum": {
+            "type": "string",
+            "example": "0"
+          }
+        },
+        "xml": {
+          "name": "Sum"
         }
       }
     }

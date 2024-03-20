@@ -11,7 +11,11 @@ const PostSchema = new mongoose.Schema({
 	comments: [{
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'Comment'
-	}]
+	}],
+	price: {
+		type: Number,
+		required: true,
+	},
 }, {timestamps: true});
 
 module.exports = mongoose.model('Post', PostSchema, 'posts');

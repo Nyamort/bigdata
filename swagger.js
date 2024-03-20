@@ -11,10 +11,12 @@ const config = {
 		schemas:{
 			CreatePostRequest:{
 				$entry : 'string',
+				price: 0,
 				$categories : ['string']
 			},
 			UpdatePostRequest:{
 				$entry : 'string',
+				price: 0,
 				$categories : ['string']
 			},
 			Post:{
@@ -23,6 +25,7 @@ const config = {
 				categories : ['string'],
 				createdAt : '1999-12-31T23:59:59Z',
 				updatedAt : '1999-12-31T23:59:59Z',
+				price: 0,
 				__v: 0
 			},
 			PostWithComments:{
@@ -31,13 +34,14 @@ const config = {
 				categories : ['string'],
 				createdAt : '1999-12-31T23:59:59Z',
 				updatedAt : '1999-12-31T23:59:59Z',
+				price: 0,
 				__v: 0,
 				comments: [
 					{
 						_id: 'string',
-						comment: 'string',
-						createdAt: '1999-12-31T23:59:59Z',
-						updatedAt: '1999-12-31T23:59:59Z',
+						text : 'string',
+						createdAt : '1999-12-31T23:59:59Z',
+						updatedAt : '1999-12-31T23:59:59Z',
 						__v: 0
 					}
 				]
@@ -54,7 +58,14 @@ const config = {
 			},
 			UpdateCommentRequest:{
 				$text : 'string',
+			},
+			Average:{
+				average: '0'
+			},
+			Sum:{
+				sum: '0'
 			}
+
 		}
 
 	}

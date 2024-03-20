@@ -61,6 +61,7 @@ class PostController extends Controller{
 			const post = new Post({
 				entry: req.body.entry,
 				categories: req.body.categories,
+				price: req.body.price,
 			});
 			await post.save();
 			super.success(res, post, 201);
@@ -81,6 +82,7 @@ class PostController extends Controller{
 			const post = await Post.findByIdAndUpdate(req.params.id, {
 				entry: req.body.entry,
 				categories: req.body.categories,
+				price: req.body.price,
 			}, {runValidators: true, new: true})
 			if (!post) {
 				return super.notFound(res);
@@ -104,6 +106,66 @@ class PostController extends Controller{
 				return super.notFound(res);
 			}
 			super.success(res, post);
+		} catch (error) {
+			super.error(res, error);
+		}
+	}
+
+	async sum(req, res) {
+		/**
+			#swagger.responses[200] = {
+				description: 'Sum price found',
+				schema:{"$ref": "#/components/schemas/Sum"}
+			}
+		 */
+		try {
+			const posts = await Post.aggregate([
+				{
+					$group: {
+						_id: null,
+						total: {
+							$sum: "$price"
+						}
+					}
+				},
+				{
+					$project: {
+						_id: 0,
+						total: 1
+					}
+				}
+			]);
+			super.success(res, posts[0]);
+		} catch (error) {
+			super.error(res, error);
+		}
+	}
+
+	async average(req, res) {
+		/**
+			#swagger.responses[200] = {
+				description: 'Average price found',
+				schema:{"$ref": "#/components/schemas/Average"}
+			}
+		 */
+		try {
+			const posts = await Post.aggregate([
+				{
+					$group: {
+						_id: null,
+						average: {
+							$avg: "$price"
+						}
+					}
+				},
+				{
+					$project: {
+						_id: 0,
+						average: 1
+					}
+				}
+			]);
+			super.success(res, posts[0]);
 		} catch (error) {
 			super.error(res, error);
 		}
