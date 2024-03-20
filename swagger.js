@@ -12,17 +12,20 @@ const config = {
 			CreatePostRequest:{
 				$entry : 'string',
 				price: 0,
+				content: 'string',
 				$categories : ['string']
 			},
 			UpdatePostRequest:{
 				$entry : 'string',
 				price: 0,
+				content: 'string',
 				$categories : ['string']
 			},
 			Post:{
 				_id: 'string',
 				entry : 'string',
 				categories : ['string'],
+				content: 'string',
 				createdAt : '1999-12-31T23:59:59Z',
 				updatedAt : '1999-12-31T23:59:59Z',
 				price: 0,
@@ -31,6 +34,7 @@ const config = {
 			PostWithComments:{
 				_id: 'string',
 				entry : 'string',
+				content: 'string',
 				categories : ['string'],
 				createdAt : '1999-12-31T23:59:59Z',
 				updatedAt : '1999-12-31T23:59:59Z',

@@ -60,6 +60,7 @@ class PostController extends Controller{
 		try {
 			const post = new Post({
 				entry: req.body.entry,
+				content: req.body.content,
 				categories: req.body.categories,
 				price: req.body.price,
 			});
@@ -81,6 +82,7 @@ class PostController extends Controller{
 			*/
 			const post = await Post.findByIdAndUpdate(req.params.id, {
 				entry: req.body.entry,
+				content: req.body.content,
 				categories: req.body.categories,
 				price: req.body.price,
 			}, {runValidators: true, new: true})
